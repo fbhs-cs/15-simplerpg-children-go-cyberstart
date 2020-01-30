@@ -1,17 +1,19 @@
 
 public class Character{
     public int hp;
+    public int mana;
     public int xp;
     public int speed;
     public String weakness;
     public String name;
 
-    public Character(int health,int experience, String weakTo, String nm, int howFast){
+    public Character(int health,int experience, String weakTo, String nm, int howFast,int magi){
         hp = health;
         xp = experience;
         weakness = weakTo;
         name = nm;
         speed = howFast;
+        mana = magi;
     }
     public Character() {
         hp = xp/10;
@@ -19,6 +21,7 @@ public class Character{
         weakness = "Oxygen.";
         name = "Bogart the Smelly aka THE FLASK";
         speed = 1000;
+        mana = 30;
     }
 
     public int getHp(){
@@ -62,14 +65,33 @@ public class Character{
             hp+=increase;
         }
     }
-    public int getMaxHp(){
+    private int getMaxHp(){
         int maxHp = xp/10;
         return maxHp;
     }
     public String getName(){
         return this.name;
     }
-    public boolean isAlive
+    public boolean isAlive(){
+        if(this.hp <= 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public int getSpeed(){
+        return this.speed;
+    }
+    public int getMana(){
+        return this.mana;
+    }
+    public void setMana(int desiredMagi){
+        this.mana = desiredMagi; 
+    }
+    public String toString() {
+        return String.format("%s %d\n", this.mana, this.hp,this.name,this.xp,this.weakness,this.speed);
+    }
+
 
 
 
