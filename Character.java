@@ -14,7 +14,7 @@ public class Character{
         speed = howFast;
     }
     public Character() {
-        hp = 1;
+        hp = xp/10;
         xp = 1000;
         weakness = "Oxygen.";
         name = "Bogart the Smelly aka THE FLASK";
@@ -46,7 +46,30 @@ public class Character{
     public void setLevel(double desiredLvl){
         xp = (int)Math.pow(2.0, desiredLvl);
     }
-    
+    public void takeDamage(int damage){
+        hp -= damage;
+    }
+    public boolean isWeakTo(String type){
+        if(type.equals(weakness)){
+            return true;
+        }
+        return false;
+        }
+    public void heal(int increase){
+        if(increase < this.getMaxHp()){
+            hp = this.getMaxHp();
+        }else{
+            hp+=increase;
+        }
+    }
+    public int getMaxHp(){
+        int maxHp = xp/10;
+        return maxHp;
+    }
+    public String getName(){
+        return this.name;
+    }
+    public boolean isAlive
 
 
 
