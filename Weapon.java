@@ -8,13 +8,14 @@ public class Weapon {
     /**
      * Weapon constructor that sets dmg to damage and gives the weapon name
      * @param damage max amount of base damage
-     * @param name name of the weapon
+     * @param name name of the weapon type
+     * @param critical Percent chance of hitting a critical hit
      */
     public Weapon(int damage, String name, double critical) 
     {
         dmg = damage;
         dmgType = name;
-        crit = cricital;
+        crit = critical;
     }
 
     /**
@@ -28,29 +29,33 @@ public class Weapon {
         int minDmg = dmg/2;
         int maxDmg = dmg;
 
-        damage = 1 + (minDmg + (Math.random() * minDmg));
+        damage = (int)(minDmg + (((maxDmg - minDmg) + 1)* Math.random())); // calculates damage anywhere between minDmg and maxDmg
 
-        boolean[] bool = new boolean[10];
-
-        // for (int i = 0; i < bool.length; i++) 
-        // {
-        //     bool[i] = 
-        // }
-
-        if (Math.random() >= 0.5) return (damage*2);
+        if (Math.random() <= crit) // chance to hit a critical
+        {
+            System.out.println("Critical Hit!");
+            if (theOtherPerson.weakness.equals(dmgType)) return (int)((damage*2) * 1.5); // check if the character is weak to it and increase damage by 50%
+            else {
+                return (damage*2); 
+            }
+        }
         else {
-            return damage;
+            if (theOtherPerson.weakness.equals(dmgType)) return (int)(damage * 1.5);
+            else {
+                return damage;
+            }
         }
     }
 
     /**
-     * weapon type getter
+     * gets weapon type
      * @return weapon type name
      */
     public String getWeaponType() 
     {
         return WEAPON_TYPE;
     }
+
     /**
      * gets damage type
      * @return damage type name
@@ -60,14 +65,32 @@ public class Weapon {
         return dmgType;
     }
 
+    /**
+     * gets max base damage
+     * @return max base damage
+     */
     public int getDmg()
     {
         return dmg;
     }
 
+    /**
+     * get critical hit chance
+     * @return
+     */
     public double getCrit()
     {
         return crit;
+    }
+
+    
+    /** 
+     * Returns formatted string
+     * @return Formatted string that contains class info
+     */
+    public String toString()
+    {
+        return String.format("Weapon: %s | Damage: %d | Damage Type: %s | Critical Chance: %f ", WEAPON_TYPE, dmg, dmgType, crit);
     }
   
 }
