@@ -89,7 +89,7 @@ public class Character{
         this.mana = desiredMagi; 
     }
     public String toString() {
-        return String.format("%s %d\n", this.mana, this.hp,this.name,this.xp,this.weakness,this.speed);
+        return String.format("Mana: %d  Health: %d Name: %s Experience: %d Weakness: %s Speed: %d\n", this.mana, this.hp,this.name,this.xp,this.weakness,this.speed);
     }
 
 
