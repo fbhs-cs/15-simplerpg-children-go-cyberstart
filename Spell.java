@@ -22,8 +22,14 @@ public class Spell{
      */
     public int cast(Character caster, Character victim){
         if(caster.getMana() >= manaReq){
-            victim.takeDamage(dmg);
-            caster.mana -= (.5*dmg);
+            if(victim.isWeakTo(SPELL_TYPE)){
+                victim.takeDamage((int)(dmg*1.5));
+                caster.mana -= (.5*dmg);
+            }
+            else{
+                victim.takeDamage(dmg);
+                caster.mana -= (.5*dmg);
+            }
         }
 
 
