@@ -4,7 +4,7 @@ public class Spell{
     private int dmg;
     private String dmgType;
     private int manaReq;
-    private String SPELL_TYPE;
+    protected static String SPELL_TYPE;
     
    
     public Spell(int damage, String damageType, int manaRequirement){
@@ -36,14 +36,26 @@ public class Spell{
         return dmg;
 
     }
+    public void setDmg(int wantDmg){
+        this.dmg = wantDmg;
+    }
 
     public int getDmg(){
         return dmg;
     }
 
+    public void setDmgType(String wantSet){
+        this.dmgType = wantSet;
+    }
+
     public String getDmgType(){
         return dmgType;
     }
+
+    public void setManaReq(int wanMana){
+        this.manaReq = wanMana;
+    }
+
 
     public int getManaReq(){
         return manaReq;
