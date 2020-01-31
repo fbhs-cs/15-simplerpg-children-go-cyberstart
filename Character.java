@@ -7,13 +7,11 @@ public class Character{
     public String weakness;
     public String name;
 
-    public Character(int health,int experience, String weakTo, String nm, int howFast,int magi){
-        hp = health;
+    public Character(int experience,String weakTo, String nm, int howFast){
         xp = experience;
         weakness = weakTo;
         name = nm;
         speed = howFast;
-        mana = magi;
     }
     public Character() {
         hp = xp/10;
