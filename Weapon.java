@@ -3,7 +3,7 @@ public class Weapon {
     private int dmg;
     private String dmgType;
     private double crit;
-    private String WEAPON_TYPE;
+    protected static String WEAPON_TYPE;
 
     /**
      * Weapon constructor that sets dmg to damage and gives the weapon name
@@ -13,9 +13,9 @@ public class Weapon {
      */
     public Weapon(int damage, String name, double critical) 
     {
-        dmg = damage;
-        dmgType = name;
-        crit = critical;
+        this.dmg = damage;
+        this.dmgType = name;
+        this.crit = critical;
     }
 
     /**
@@ -26,22 +26,30 @@ public class Weapon {
     public int attack(Character theOtherPerson) 
     {
         int damage = 0;
-        int minDmg = dmg/2;
-        int maxDmg = dmg;
+        int minDmg = this.dmg/2;
+        int maxDmg = this.dmg;
 
         damage = (int)(minDmg + (((maxDmg - minDmg) + 1)* Math.random())); // calculates damage anywhere between minDmg and maxDmg
 
         if (Math.random() <= crit) // chance to hit a critical
         {
             System.out.println("Critical Hit!");
-            if (theOtherPerson.weakness.equals(dmgType)) return (int)((damage*2) * 1.5); // check if the character is weak to it and increase damage by 50%
+            if (theOtherPerson.weakness.equals(this.dmgType)) {
+                theOtherPerson.takeDamage((int)((damage*2) * 1.5));
+                return (int)((damage*2) * 1.5); // check if the character is weak to it and increase damage by 50%
+            }
             else {
+                theOtherPerson.takeDamage(damage*2);
                 return (damage*2); 
             }
         }
         else {
-            if (theOtherPerson.weakness.equals(dmgType)) return (int)(damage * 1.5);
+            if (theOtherPerson.weakness.equals(this.dmgType)) {
+                theOtherPerson.takeDamage((int)(damage * 1.5));
+                return (int)(damage * 1.5);
+            }
             else {
+                theOtherPerson.takeDamage(damage);
                 return damage;
             }
         }
@@ -57,12 +65,31 @@ public class Weapon {
     }
 
     /**
+     * sets weapon type
+     * @param name weapon type
+     */
+    public void setWeaponType(String name) 
+    {
+        WEAPON_TYPE = name;
+    }
+
+    /**
      * gets damage type
      * @return damage type name
      */
     public String getDmgType() 
     {
-        return dmgType;
+        return this.dmgType;
+    }
+
+    
+    /** 
+     * sets damage type
+     * @param name name of damage type
+     */
+    public void setDmgType(String name) 
+    {
+        this.dmgType = name;
     }
 
     /**
@@ -74,13 +101,33 @@ public class Weapon {
         return dmg;
     }
 
+    
+    /** 
+     * sets damage
+     * @param dam damage value
+     */
+    public void setDmg(int dam)
+    {
+        this.dmg = dam;
+    }
+
     /**
      * get critical hit chance
-     * @return
+     * @return crit chance
      */
     public double getCrit()
     {
         return crit;
+    }
+
+    
+    /** 
+     * sets critical hit chance percentage
+     * @param perc critical hit chance
+     */
+    public void setCrit(double perc)
+    {
+        this.crit = perc;
     }
 
     
@@ -90,7 +137,7 @@ public class Weapon {
      */
     public String toString()
     {
-        return String.format("Weapon: %s | Damage: %d | Damage Type: %s | Critical Chance: %f ", WEAPON_TYPE, dmg, dmgType, crit);
+        return String.format("Weapon: %s | Damage: %d | Damage Type: %s | Critical Chance: %f ", WEAPON_TYPE, this.dmg, this.dmgType, this.crit);
     }
   
 }
