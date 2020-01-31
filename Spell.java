@@ -44,7 +44,7 @@ public class Spell{
     }
 
     public String toString(){
-        return String.format("Spell type: %s| Damage: %d| Damage Type: %s| Mana Requirements: %d|");
+        return String.format("Spell type: %s| Damage: %d| Damage Type: %s| Mana Requirements: %d|", SPELL_TYPE, dmg, dmgType, manaReq);
 
 
     }
