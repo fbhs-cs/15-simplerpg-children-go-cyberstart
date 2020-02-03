@@ -1,5 +1,5 @@
 
-public abstract class Character{
+public class Character{
     public int hp;
     public int mana;
     public int xp;
