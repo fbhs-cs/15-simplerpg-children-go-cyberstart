@@ -2,15 +2,20 @@
 
 public class Mage extends Character{
 
-    public Mage(){
-        xp=100;
-        hp = xp/10;
-        mana=xp/2;
-        weakness = "Piercing";
-        speed = 30;
+    private Spell fire;
         
+    
+    public Mage(String Name, Spell Fire){
+        super("Fire", 20);
     }
-    public
+
+    public void chooseAction(Character target){
+
+
+
+    }
+
+}
 
 
 
