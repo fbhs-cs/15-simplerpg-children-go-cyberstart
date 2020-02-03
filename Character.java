@@ -1,11 +1,11 @@
 
-public class Character{
-    public int hp;
-    public int mana;
-    public int xp;
-    public int speed;
-    public String weakness;
-    public String name;
+public abstract class Character{
+    private int hp;
+    private int mana;
+    private int xp;
+    private int speed;
+    private String weakness;
+    private String name;
 
     public Character(int experience,String weakTo, String nm, int howFast){
         xp = experience;
@@ -89,6 +89,9 @@ public class Character{
     }
     public String toString() {
         return String.format("Mana: %d  Health: %d Name: %s Experience: %d Weakness: %s Speed: %d\n", this.mana, this.hp,this.name,this.xp,this.weakness,this.speed);
+    }
+    public void chooseAction(Character Target){
+        
     }
     
 
