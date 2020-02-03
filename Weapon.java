@@ -1,4 +1,4 @@
-public class Weapon {
+public abstract class Weapon {
 
     private int dmg;
     private String dmgType;
@@ -23,37 +23,7 @@ public class Weapon {
      * @param theOtherPerson the character recieving the attack
      * @return the integer amount of damage
      */
-    public int attack(Character theOtherPerson) 
-    {
-        int damage = 0;
-        int minDmg = this.dmg/2;
-        int maxDmg = this.dmg;
-
-        damage = (int)(minDmg + (((maxDmg - minDmg) + 1)* Math.random())); // calculates damage anywhere between minDmg and maxDmg
-
-        if (Math.random() <= crit) // chance to hit a critical
-        {
-            System.out.println("Critical Hit!");
-            if (theOtherPerson.weakness.equals(this.dmgType)) {
-                theOtherPerson.takeDamage((int)((damage*2) * 1.5));
-                return (int)((damage*2) * 1.5); // check if the character is weak to it and increase damage by 50%
-            }
-            else {
-                theOtherPerson.takeDamage(damage*2);
-                return (damage*2); 
-            }
-        }
-        else {
-            if (theOtherPerson.weakness.equals(this.dmgType)) {
-                theOtherPerson.takeDamage((int)(damage * 1.5));
-                return (int)(damage * 1.5);
-            }
-            else {
-                theOtherPerson.takeDamage(damage);
-                return damage;
-            }
-        }
-    }
+    public abstract int attack(Character theOtherPerson);
 
     /**
      * gets weapon type
@@ -82,7 +52,6 @@ public class Weapon {
         return this.dmgType;
     }
 
-    
     /** 
      * sets damage type
      * @param name name of damage type
@@ -101,7 +70,6 @@ public class Weapon {
         return dmg;
     }
 
-    
     /** 
      * sets damage
      * @param dam damage value
@@ -119,8 +87,7 @@ public class Weapon {
     {
         return crit;
     }
-
-    
+  
     /** 
      * sets critical hit chance percentage
      * @param perc critical hit chance
@@ -130,7 +97,6 @@ public class Weapon {
         this.crit = perc;
     }
 
-    
     /** 
      * Returns formatted string
      * @return Formatted string that contains class info
@@ -139,5 +105,4 @@ public class Weapon {
     {
         return String.format("Weapon: %s | Damage: %d | Damage Type: %s | Critical Chance: %f ", WEAPON_TYPE, this.dmg, this.dmgType, this.crit);
     }
-  
 }
