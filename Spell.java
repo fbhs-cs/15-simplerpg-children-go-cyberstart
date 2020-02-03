@@ -1,5 +1,5 @@
 
-public class Spell{
+public abstract class Spell{
 
     private int dmg;
     private String dmgType;
@@ -36,6 +36,9 @@ public class Spell{
         return dmg;
 
     }
+
+    public abstract void chooseSpell(Spell spell);
+
     public void setDmg(int wantDmg){
         this.dmg = wantDmg;
     }
