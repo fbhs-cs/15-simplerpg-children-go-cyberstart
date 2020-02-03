@@ -1,5 +1,5 @@
 
-public class Character{
+public abstract class Character{
     public int hp;
     public int mana;
     public int xp;
@@ -12,6 +12,7 @@ public class Character{
         weakness = weakTo;
         name = nm;
         speed = howFast;
+        hp = xp/10;
     }
     public Character() {
         hp = xp/10;
@@ -89,6 +90,7 @@ public class Character{
     public String toString() {
         return String.format("Mana: %d  Health: %d Name: %s Experience: %d Weakness: %s Speed: %d\n", this.mana, this.hp,this.name,this.xp,this.weakness,this.speed);
     }
+    
 
 
 
