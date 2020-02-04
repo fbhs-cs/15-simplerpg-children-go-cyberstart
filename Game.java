@@ -5,7 +5,7 @@ public class Game {
     static Character player;
 
     // change these to match weapon/spell types
-    static final String[] WEAKNESSES = {"Weakness #1", "Weakness #2", "Weakness #3"};
+    static final String[] WEAKNESSES = {"Arrow", "Ice", "Fire", "Slashers Axe"};
 
     
     
@@ -38,9 +38,9 @@ public class Game {
         while (true) {
             try {
                 System.out.println("What class would you like to play?  Here are your options:");
-                System.out.println("1. Class #1"); // change this
-                System.out.println("2. Class #2"); // change this
-                System.out.println("3. Class #3"); // change this
+                System.out.println("1. Archer"); // change this
+                System.out.println("2. Mage"); // change this
+                System.out.println("3. Warrior"); // change this
                 System.out.print("> ");
                 classChoice = Integer.parseInt(in.nextLine());
                 if(classChoice < 1 || classChoice > 3) {
@@ -76,11 +76,11 @@ public class Game {
         String weakness = WEAKNESSES[weaknessChoice-1];
 
         if(classChoice == 1)
-            player = new Character(name,weakness,10); // This needs to be updated for each class
+            player = new Archer(10, weakness, name, 10); // This needs to be updated for each class
         else if(classChoice == 2)
-            player = new Character(name, weakness,20); // update for the class
+            player = new Mage(10, weakness, name, 20); // update for the class
         else if(classChoice == 3)
-            player = new Character(name, weakness,5); // update for the class
+            player = new Warrior(50, name, weakness ,30); // update for the class
 
         
     }
