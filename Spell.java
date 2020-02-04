@@ -21,14 +21,16 @@ public abstract class Spell{
      * @return
      */
     public int cast(Character caster, Character victim){
+        int CurMana = caster.getMana();
         if(caster.getMana() >= manaReq){
             if(victim.isWeakTo(SPELL_TYPE)){
-                victim.takeDamage((int)(dmg*1.5));
-                caster.mana -= (.5*dmg);
+                dmg *=1.5;
+                victim.takeDamage((int)(dmg));
+                caster.setMana(CurMana-manaReq);
             }
             else{
                 victim.takeDamage(dmg);
-                caster.mana -= (.5*dmg);
+                caster.setMana(CurMana-manaReq);
             }
         }
 
@@ -69,15 +71,6 @@ public abstract class Spell{
 
 
     }
-
-
-
-
-
-
-
-
-
 
 
 }
