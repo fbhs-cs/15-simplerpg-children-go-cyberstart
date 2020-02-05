@@ -5,7 +5,7 @@ public class Game {
     static Character player;
 
     // change these to match weapon/spell types
-    static final String[] WEAKNESSES = {"Piercing", "Ice", "Fire", "Slashing", "Poison"};
+    static final String[] WEAKNESSES = {"Piercing", "Ice", "Fire", "Slashing", "Poison", "Brain cell killer"};
 
     
     
