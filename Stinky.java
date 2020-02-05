@@ -10,8 +10,7 @@ public class Stinky extends Spell{
         int CurMana = caster.getMana();
         if(caster.getMana() >= getManaReq()){
             if(victim.isWeakTo(SPELL_TYPE)){
-                int dmg = getDmg();
-                dmg *=1.5;
+                setDmg((int)(getDmg() * 1.5));
                 victim.takeDamage((int)(getDmg()));
                 caster.setMana(CurMana-getManaReq());
             }
