@@ -2,7 +2,7 @@ public class Bow extends Weapon {
 
     public Bow(int damage, String damageType, double critical) {
         super(damage, damageType , 15);
-        WEAPON_TYPE = "Bow";
+        WEAPON_TYPE = "Piercing Bow";
     }
 
     // public static void main(String[] args) {
