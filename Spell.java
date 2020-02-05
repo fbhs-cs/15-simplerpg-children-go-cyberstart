@@ -13,7 +13,7 @@ public abstract class Spell{
 
     }
 
-    public abstract int cast(Spell spell);
+    public abstract int cast(Character caster, Character victim);
 
     public void setDmg(int wantDmg){
         this.dmg = wantDmg;
