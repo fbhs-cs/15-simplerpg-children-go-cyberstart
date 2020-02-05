@@ -2,7 +2,7 @@
 
 public class Mage extends Character{
 
-    private Spell fire;
+    private Spell Fire;
         
     
     public Mage(int xp , String weakTo, String name, int speed) {
@@ -15,26 +15,5 @@ public class Mage extends Character{
 
 
     }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
