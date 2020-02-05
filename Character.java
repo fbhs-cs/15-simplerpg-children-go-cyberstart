@@ -64,7 +64,7 @@ public abstract class Character{
             hp+=increase;
         }
     }
-    private int getMaxHp(){
+    public int getMaxHp(){
         int maxHp = xp/10;
         return maxHp;
     }
