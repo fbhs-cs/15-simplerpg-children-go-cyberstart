@@ -1,7 +1,7 @@
 public class PoisonSword extends Weapon{
 
-    public PoisonSword(int damage, String name, double critical ){
-        super(damage, "lacerate", 40);
+    public PoisonSword(int damage, String dmgType, double critical ){
+        super(damage, "Poison", 30 );
         WEAPON_TYPE = "Poisoned Sword";
 
     }

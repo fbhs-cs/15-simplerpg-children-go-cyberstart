@@ -4,15 +4,15 @@ public class TestSpell
     {
         Character character1 = new Character();
         Character character2 = new Character();
-        Character enemy = new Character(10, 10, "jacob", "leroy", 100, 20);
-        Character enemy2 = new Character(10, 10, "none", "leroy Jr.", 100, 20);
+        Character enemy = new Character(100, "jacob", "leroy", 100);
+        Character enemy2 = new Character(100, "none", "leroy Jr.", 100);
 
         Spell destroy = new Spell( 5, "jacob", 2);
 
         // System.out.println(character1); // toString methods do not print everything       
         // System.out.println(enemy);      
 
-        System.out.println(destroy); // test toString 
+        // System.out.println(destroy); // test toString 
         
         // test if enemy is weak to spell
 
