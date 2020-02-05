@@ -1,4 +1,3 @@
-
 public abstract class Spell{
 
     private int dmg;
@@ -14,32 +13,7 @@ public abstract class Spell{
 
     }
 
-    /**
-     * casts a spell on another Character and returns the damage on the victim
-     * @param caster the Character
-     * @param victim
-     * @return
-     */
-    public int cast(Character caster, Character victim){
-        int CurMana = caster.getMana();
-        if(caster.getMana() >= manaReq){
-            if(victim.isWeakTo(SPELL_TYPE)){
-                dmg *=1.5;
-                victim.takeDamage((int)(dmg));
-                caster.setMana(CurMana-manaReq);
-            }
-            else{
-                victim.takeDamage(dmg);
-                caster.setMana(CurMana-manaReq);
-            }
-        }
-
-
-        return dmg;
-
-    }
-
-    public abstract void chooseSpell(Spell spell);
+    public abstract int cast(Spell spell);
 
     public void setDmg(int wantDmg){
         this.dmg = wantDmg;
