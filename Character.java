@@ -90,7 +90,7 @@ public abstract class Character{
     public String toString() {
         return String.format("Mana: %d  Health: %d Name: %s Experience: %d Weakness: %s Speed: %d\n", this.mana, this.hp,this.name,this.xp,this.weakness,this.speed);
     }
-    public abstract void chooseAction(Character Target);
+    public abstract void chooseAction(Character target);
         
 
 }
