@@ -1,24 +1,28 @@
 public class Stinky extends Spell{
-    
-    public Stinky(int damage, )
+
+    public Stinky(int damage, String damageType, int manaReq){
+        super(damage, "Braincell  Killer", 60 );
+        SPELL_TYPE = "Killer Stink";
+    }
 
 
     public int cast(Character caster, Character victim){
         int CurMana = caster.getMana();
-        if(caster.getMana() >= manaReq){
+        if(caster.getMana() >= getManaReq()){
             if(victim.isWeakTo(SPELL_TYPE)){
+                int dmg = getDmg();
                 dmg *=1.5;
-                victim.takeDamage((int)(dmg));
-                caster.setMana(CurMana-manaReq);
+                victim.takeDamage((int)(getDmg()));
+                caster.setMana(CurMana-getManaReq());
             }
             else{
-                victim.takeDamage(dmg);
-                caster.setMana(CurMana-manaReq);
+                victim.takeDamage(getDmg());
+                caster.setMana(CurMana-getManaReq());
             }
         }
 
 
-        return dmg;
+        return getDmg();
 
     }
 }
