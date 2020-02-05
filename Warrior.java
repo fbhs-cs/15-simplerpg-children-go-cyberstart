@@ -1,6 +1,8 @@
 public class Warrior extends Character(
 
-    public Warrior(String name, Weapon weapon){
-        super(100,"fire", name, 20 )
+    public Warrior(int xp, String weakTo, String name, int howFast){
+        super(100,"fire", name, 20 );
     }
+
+    
 )
