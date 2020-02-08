@@ -2,7 +2,7 @@
 
 
 public class Fire extends Spell{
-    public Fire(){
+    public Fire(int damage, String dmgType, int manaReq){
         super(20,"Fire",5);
         SPELL_TYPE = "Fire Cantrip";
     }
