@@ -1,8 +1,9 @@
 public class Ghoul extends Character {
-    private Weapon bow = new Bow(30, "Piercing", 10);
+    private Weapon bow;
 
     public Ghoul(int xp, String weak, String name, int howFast) {
         super(xp, weak, name, howFast);
+        bow = new Bow(30, "Piercing", 10);
     }
 
     @Override
