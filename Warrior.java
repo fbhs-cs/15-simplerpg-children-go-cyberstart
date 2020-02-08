@@ -31,28 +31,28 @@ public class Warrior extends Character{
             }
             
         }
-        if(action.equals("a")||action.equals("A")){
-            System.out.println();
-            int dam = poisonSword.attack(target);
-            System.out.printf("%s attacked %s and it lost %d hp.", getName(), target.getName(), dam);
-            System.out.println();
-        }
+            if(action.equals("a")||action.equals("A")){
+                System.out.println();
+                int dam = poisonSword.attack(target);
+                System.out.printf("%s attacked %s and it lost %d hp.", getName(), target.getName(), dam);
+                System.out.println();
+            }
 
-        else if(action.equals("h")|| action.equals("H")){
-            int increase = this.getMaxHp();
-            System.out.println();
-            this.heal((int)(increase*.25));
-            System.out.printf("%s gained %d hp.", getName(),getHp());
-            System.out.println();
-        }
-        else if(action.equals("r")||action.equals("R")){
-            setHp(health/2);
-            System.out.println();
-            System.out.printf("You escaped barely surviving, only having %d hp left", this.getHp());
-            System.out.println();
-        }
+            else if(action.equals("h")|| action.equals("H")){
+                int increase = this.getMaxHp();
+                System.out.println();
+                this.heal((int)(increase*.25));
+                System.out.printf("%s gained %d hp.", getName(),getHp());
+                System.out.println();
+            }
+            else if(action.equals("r")||action.equals("R")){
+                setHp(health/2);
+                System.out.println();
+                System.out.printf("You escaped barely surviving, only having %d hp left", this.getHp());
+                System.out.println();
+            }
 
-        
+            
         input.close();
 
     }
