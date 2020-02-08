@@ -5,7 +5,7 @@ public class Warrior extends Character{
     private Weapon PoisonSword;
 
     public Warrior(int xp, String weakTo, String name, int howFast){
-        super(100,"fire", name, 20 );
+        super(xp, weakTo, name, howFast);
     }
 
     public void chooseAction(Character target){
@@ -16,8 +16,8 @@ public class Warrior extends Character{
             String action = input.next();
             if(action.equals("a")||action.equals("A")){
                 System.out.println();
-                PoisonSword.attack(target);
-                System.out.printf("%s attacked %s and it lost %d hp.", getName(), target.getName(),  );
+                int dam = PoisonSword.attack(target);
+                System.out.printf("%s attacked %s and it lost %d hp.", getName(), target.getName(), dam);
                 System.out.println();
 
 
