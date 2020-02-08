@@ -16,18 +16,14 @@ public class Warrior extends Character{
         while(true){
             try{
                 health = getHp();
-                System.out.println("What do you want to do? (r)Run, (a)Attack or (h)Heal? ");
+                System.out.println("What do you want to do? (a)Attack or (h)Heal? ");
                 action = input.nextLine();
-                if(!action.equals("a") || !action.equals("A") || !action.equals("r") || !action.equals("R") || !action.equals("r") || !action.equals("h") || !action.equals("H")){
-                    System.out.println("You must type a, r, h");
-                    continue;
-                    
-                }
                 if(action.equals("a")||action.equals("A")){
                     System.out.println();
                     int dam = poisonSword.attack(target);
                     System.out.printf("%s attacked %s and it lost %d hp.", getName(), target.getName(), dam);
                     System.out.println();
+                    break;
                 }
     
                 else if(action.equals("h")|| action.equals("H")){
@@ -36,26 +32,30 @@ public class Warrior extends Character{
                     this.heal((int)(increase*.25));
                     System.out.printf("%s gained %d hp.", getName(),getHp());
                     System.out.println();
+                    break;
                 }
-                else if(action.equals("r")||action.equals("R")){
-                    setHp(health/2);
-                    System.out.println();
-                    System.out.printf("You escaped barely surviving, only having %d hp left", this.getHp());
-                    System.out.println();
+
+                else if(!(action.equals("a")) || !(action.equals("A")) || !(action.equals("h")) || !(action.equals("H"))){
+                    System.out.println("You must type  a or h");
+                    continue;
+                    
                 }
-    
-                
-                break;
+            
             }            
 
             catch(Exception e){
-                System.out.println("You must type a, r, h");
+                System.out.println("You must type a or h");
             }
             
         }
+        
             
             
-        input.close();
+
+        
+            
+            
+        
 
     }
 
