@@ -93,16 +93,18 @@ public class Game {
     public static Character makeEnemy() {
         int randWeakness = (int)(Math.random()*WEAKNESSES.length);
 
+        int randXP = (int)(Math.random() * player.getXP() + 2);
+
         // make speed at least 5, and at most player's speed + 4
         int randSpeed = (int)(Math.random()*player.getSpeed() + 5);
 
         double rand = Math.random();
         if(rand < 0.3) {
-            return new Character("Enemy1",WEAKNESSES[randWeakness],randSpeed); // change to enemy class constructor
+            return new Ghoul(randXP, "Ghoulish Man", WEAKNESSES[randWeakness], randSpeed); // change to enemy class constructor
         } else if (rand < 0.6) {
-            return new Character("Enemy2",WEAKNESSES[randWeakness],randSpeed); // change to enemy class constructor
+            return new Goblin(randXP, "Green Goober Goblin", WEAKNESSES[randWeakness], randSpeed); // change to enemy class constructor
         } else {
-            return new Character("Enemy3",WEAKNESSES[randWeakness],randSpeed); // change to enemy class constructor
+            return new Skeleton(randXP, "Penguini", WEAKNESSES[randWeakness], randSpeed); // change to enemy class constructor
         }
     }
 
