@@ -76,11 +76,11 @@ public class Game {
         String weakness = WEAKNESSES[weaknessChoice-1];
 
         if(classChoice == 1)
-            player = new Archer(100, weakness, name, 10); // This needs to be updated for each class
+            player = new Archer(1000, weakness, name, 10); // This needs to be updated for each class
         else if(classChoice == 2)
-            player = new Mage(100, weakness, name, 20); // update for the class
+            player = new Mage(1000, weakness, name, 20); // update for the class
         else if(classChoice == 3)
-            player = new Warrior(500, name, weakness ,30); // update for the class
+            player = new Warrior(5000, name, weakness ,30); // update for the class
 
         
     }
