@@ -15,7 +15,7 @@ public class Axe extends Weapon{
 
         damage = (int)(minDmg + (((maxDmg - minDmg) + 1)* Math.random())); // calculates damage anywhere between minDmg and maxDmg
 
-        if (Math.random() <= getCrit()) // chance to hit a critical
+        if (Math.random() <= (getCrit()/100)) // chance to hit a critical
         {
             System.out.println("Critical Hit!");
             if (theOtherPerson.isWeakTo(getDmgType())) {
