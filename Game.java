@@ -76,11 +76,11 @@ public class Game {
         String weakness = WEAKNESSES[weaknessChoice-1];
 
         if(classChoice == 1)
-            player = new Archer(10, weakness, name, 10); // This needs to be updated for each class
+            player = new Archer(100, weakness, name, 10); // This needs to be updated for each class
         else if(classChoice == 2)
-            player = new Mage(10, weakness, name, 20); // update for the class
+            player = new Mage(100, weakness, name, 20); // update for the class
         else if(classChoice == 3)
-            player = new Warrior(50, name, weakness ,30); // update for the class
+            player = new Warrior(500, name, weakness ,30); // update for the class
 
         
     }
@@ -100,18 +100,18 @@ public class Game {
 
         double rand = Math.random();
         if(rand < 0.3) {
-            return new Ghoul(randXP, "Ghoulish Man", WEAKNESSES[randWeakness], randSpeed); // change to enemy class constructor
+            return new Ghoul(randXP, WEAKNESSES[randWeakness], "Ghoulish Man", randSpeed); // change to enemy class constructor
         } else if (rand < 0.6) {
-            return new Goblin(randXP, "Green Goober Goblin", WEAKNESSES[randWeakness], randSpeed); // change to enemy class constructor
+            return new Goblin(randXP, WEAKNESSES[randWeakness], "Green Goober Goblin", randSpeed); // change to enemy class constructor
         } else {
-            return new Skeleton(randXP, "Penguini", WEAKNESSES[randWeakness], randSpeed); // change to enemy class constructor
+            return new Skeleton(randXP, WEAKNESSES[randWeakness], "Penguini", randSpeed); // change to enemy class constructor
         }
     }
 
     public static void playRound() {
         Character enemy = makeEnemy();
         enemy.setLevel(player.getLevel()-(int)Math.random()*2); // enemy will be same level or 1 level lower
-        //System.out.println(player.getName() + " is fighting " + enemy.getName());
+        System.out.println(player.getName() + " is fighting " + enemy.getName());
 
         while(player.isAlive() && enemy.isAlive()) {
             System.out.println(player + " vs. " + enemy);
