@@ -9,7 +9,7 @@ public class Skeleton extends Character{
     @Override 
     public void chooseAction(Character player){
         int dmg = PoisonSword.attack(player);
-        System.out.printf("%s was attacked by a Skeleton and lost %d hp, and now has %d hp.", player.getName(), dmg, player.getHp()) ;
+        System.out.printf("%s was attacked by %s and lost %d hp, and now has %d hp.", player.getName(), this.getName(), dmg, player.getHp()) ;
 
     }
 
