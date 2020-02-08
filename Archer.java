@@ -17,7 +17,7 @@ public class Archer extends Character {
 
         while (true) {
             try {
-                System.out.println("What would " + this.getName() + "(" + this.getHp() + ")" + " like to do?");
+                System.out.println("What would " + this.getName() + " (" + this.getHp() + ")" + " like to do?");
                 System.out.println("1. Attack \n2. Heal\n3. Run");
         
                 if (ans.equals("1")) {

@@ -6,7 +6,7 @@ public class Mage extends Character{
     
     public Mage(int xp , String weakTo, String name, int speed) {
         super(xp, weakTo, name, speed);
-        
+        Fire = new Fire(40, "Fire", 30);
     }
 
     public void chooseAction(Character target){
@@ -29,5 +29,4 @@ public class Mage extends Character{
         input.close();
     }
 
-}
 }
