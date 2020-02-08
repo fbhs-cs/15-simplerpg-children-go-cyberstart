@@ -27,6 +27,7 @@ public class Warrior extends Character{
                 int increase = this.getMaxHp();
                 System.out.println();
                 this.heal((int)(increase*.25));
+                System.out.printf("%s gained %d hp.", getName(),getHp());
                 System.out.println();
 
 
