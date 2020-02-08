@@ -20,6 +20,7 @@ public class Warrior extends Character{
                 action = input.nextLine();
                 if(!action.equals("a") || !action.equals("A") || !action.equals("r") || !action.equals("R") || !action.equals("r") || !action.equals("h") || !action.equals("H")){
                     System.out.println("You must type a, r, h");
+                    continue;
                     
                 }
                 if(action.equals("a")||action.equals("A")){
