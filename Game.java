@@ -110,6 +110,7 @@ public class Game {
 
     public static void playRound() {
         Character enemy = makeEnemy();
+        // System.out.println(enemy);
         enemy.setLevel(player.getLevel()-(int)Math.random()*2); // enemy will be same level or 1 level lower
         System.out.println(player.getName() + " is fighting " + enemy.getName());
 
