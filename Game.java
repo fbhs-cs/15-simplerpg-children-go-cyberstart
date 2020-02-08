@@ -80,7 +80,7 @@ public class Game {
         else if(classChoice == 2)
             player = new Mage(1000, weakness, name, 20); // update for the class
         else if(classChoice == 3)
-            player = new Warrior(5000, name, weakness ,30); // update for the class
+            player = new Warrior(5000, weakness, name ,30); // update for the class
 
         
     }
