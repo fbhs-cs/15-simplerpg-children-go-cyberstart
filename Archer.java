@@ -8,48 +8,87 @@ public class Archer extends Character {
         bow = new Bow(30, "Piercing", 25);
         
     }
-
     @Override
-    public void chooseAction(Character target) {
-        Scanner s = new Scanner(System.in);
-        
-        String ans = s.nextLine();
-
-        while (true) {
-            try {
-                System.out.println("What would " + this.getName() + " (" + this.getHp() + ")" + " like to do?");
-                System.out.println("1. Attack \n2. Heal\n3. Run");
-        
-                if (ans.equals("1")) {
+    public void chooseAction(Character target){
+        Scanner input = new Scanner(System.in);
+        String action = "";
+        int health = 0;
+        while(true){
+            try{
+                health = getHp();
+                System.out.println("What do you want to do? (a)Attack or (h)Heal? ");
+                action = input.nextLine().toLowerCase();
+                if(action.equals("a")){
+                    System.out.println();
                     int dam = bow.attack(target);
-                    System.out.println(this.getName() + "(" + this.getHp() + ")" + 
-                                    " attacked " + target.getName() + "(" + target.getHp() + ")"
-                                     + " with " + bow.getWeaponType() + " for " + dam + " damage");
+                    System.out.printf("%s attacked %s and it lost %d hp.", getName(), target.getName(), dam);
+                    System.out.println();
+                    break;
                 }
-                else if (ans.equals("2")) {
+    
+                else if(action.equals("h")){
                     int increase = this.getMaxHp();
-                    this.heal((int)(increase * .25));
-                    System.out.println(this.getName() + " healed to " + this.getHp());
+                    System.out.println();
+                    this.heal((int)(increase*.25));
+                    System.out.printf("%s gained %d hp.", getName(),getHp());
+                    System.out.println();
+                    break;
                 }
-                else if (ans.equals("3")) {
-                    this.setHp(this.getHp()/2);
-                    System.out.println(this.getName() + " escaped but left with half of its health -> " + this.getHp());
+
+                else if(!(action.equals("a")) || !(action.equals("h"))){
+                    System.out.println("You must type a or h");
+                    continue;
+                    
                 }
-                break;
+            
+            }            
+
+            catch(Exception e){
+                System.out.println("You must type a or h");
             }
-            catch (Exception e){
-                System.out.println("Enter in either 1, 2, or 3");
-            }
+            
         }
-
-
-        s.close();
-
-
+        
     }
-    public static void main( String[] args) {
-        Character ye = new Archer(500, "Ice", "Andre", 100);
-        Character en = new Ghoul(100, "Piercing", "stinky", 50);
-        ye.chooseAction(en);
-    }
+
+    // @Override
+    // public void chooseAction(Character target){
+    //     Scanner input = new Scanner(System.in);
+    //     int health = 0;
+    //     String action = "";
+    //     while(true){
+    //         try {
+    //             health = getHp();
+    //             System.out.println("What do you want to do? (a)Attack or (h)Heal? ");
+    //             action = input.nextLine();
+    //             if(action.equals("a")||action.equals("A")){
+    //                 System.out.println();
+    //                 int dam = bow.attack(target);
+    //                 System.out.printf("%s attacked %s and it lost %d hp.", getName(), target.getName(), dam);
+    //                 System.out.println();
+    //                 break;
+    
+    //             }
+    //             else if(action.equals("h")|| action.equals("H")){
+    //                 int increase = this.getMaxHp();
+    //                 System.out.println();
+    //                 this.heal((int)(increase*.25));
+    //                 System.out.printf("%s gained %d hp.", getName(),health);
+    //                 System.out.println();
+    //                 break;
+    
+    //             }
+                
+    //             else if (!action.toLowerCase().equals("a") || !action.toLowerCase().equals("r")) {
+    //                 System.out.println("Type either an \"a\" or \"h\"");
+    //                 continue;
+    //             }
+    //         }
+    //         catch (Exception e) {
+    //             System.out.println("Type either an \"a\" or \"h\"");
+    //         }
+
+    //     }
+    //     input.close();
+    // }
 }
