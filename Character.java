@@ -13,6 +13,7 @@ public abstract class Character{
         name = nm;
         speed = howFast;
         hp = xp/10;
+        mana = getLevel() * 10;
     }
     public Character() {
         hp = xp/10;
