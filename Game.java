@@ -101,6 +101,7 @@ public class Game {
         double rand = Math.random();
         if(rand < 0.3) {
             return new Ghoul(randXP, WEAKNESSES[randWeakness], "Ghoulish Man", randSpeed); // change to enemy class constructor
+            
         } else if (rand < 0.6) {
             return new Goblin(randXP, WEAKNESSES[randWeakness], "Green Goober Goblin", randSpeed); // change to enemy class constructor
         } else {
