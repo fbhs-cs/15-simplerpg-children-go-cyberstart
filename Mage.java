@@ -11,22 +11,47 @@ public class Mage extends Character{
 
     public void chooseAction(Character target){
         Scanner input = new Scanner(System.in);
-        int health = getHp();
-        System.out.println("What do you want to do? Run(r), Cast(c), and Heal(h). ");
-        String action = input.next();
-        if(action.equals("r")){
-            setHp(health/2);
-            System.out.println("You've run away but the enemy attacked you! Youve lost half your healh leaving you at" + getHp() +" left.");
-        }
-        else if(action.equals("c")){
-            Fire.cast(this, target);
-        }
-        else if(action.equals("h")){
-            int heals = this.getHp();
-            this.heal(heals/4);
-        }
+        String action = "";
+        int health = 0;
 
-        input.close();
+        while(true){
+            try{
+                health = getHp();
+                System.out.println("What do you want to do? Cast(c) or Heal(h) ");
+                action = input.nextLine();
+
+                
+                if(action.equals("c") || action.equals("C")){
+                    System.out.println();
+                    int dam =  Fire.cast(this, target);
+                    System.out.printf("%s attacked %s and it lost %d hp.", getName(), target.getName(), dam);
+                    System.out.println();
+                    break;
+                }
+
+                else if(action.equals("h")){
+                    int increase = this.getMaxHp();
+                    System.out.println();
+                    this.heal((int)(increase*.25));
+                    System.out.printf("%s gained %d hp.", getName(),getHp());
+                    System.out.println();
+                    break;
+                }
+
+                else if(!(action.equals("c")) || !(action.equals("C")) || !(action.equals("h")) || !(action.equals("H"))){
+                    System.out.println("You must type  c or h");
+                    continue;
+                    
+                }
+
+
+            }
+            catch(Exception e){
+                System.out.println("You must type c or h");
+            }
+        }
+        
+    
     }
 
 }
